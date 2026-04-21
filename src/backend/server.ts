@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(process.cwd(), 'src/frontend')));
 
 // Game instance
 let gameController: GameController | null = null;
@@ -209,7 +209,7 @@ wss.on('connection', (ws: WebSocket) => {
 
 // Serve index.html for all non-API routes
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+  res.sendFile(path.join(process.cwd(), 'src/frontend/index.html'));
 });
 
 server.listen(port, () => {

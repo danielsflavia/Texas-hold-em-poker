@@ -1,0 +1,46 @@
+import { Card } from './Card';
+import { Player } from './Player';
+import { GameState } from './GameState';
+export { GameState };
+export declare class GameController {
+    private deck;
+    private communityCards;
+    private players;
+    private currentPlayerIndex;
+    private pot;
+    private currentBet;
+    private smallBlind;
+    private bigBlind;
+    private gameState;
+    private dealerPosition;
+    private logs;
+    constructor(smallBlind: number, bigBlind: number);
+    private initializeDeck;
+    private shuffleDeck;
+    addPlayer(id: string, name: string, chips: number): void;
+    initializeRound(): void;
+    private dealHands;
+    private postBlinds;
+    getGameState(): GameState;
+    getPlayers(): Player[];
+    getCommunityCards(): Card[];
+    getPot(): number;
+    getCurrentBet(): number;
+    getCurrentPlayerId(): string | null;
+    processPlayerAction(playerId: string, action: string, raiseAmount?: number): void;
+    private nextPlayer;
+    private activePlayers;
+    private isBettingRoundComplete;
+    private advanceGameState;
+    private resetBets;
+    dealFlop(): void;
+    dealTurn(): void;
+    dealRiver(): void;
+    determineWinner(): Player[];
+    private getHandValue;
+    private rankValue;
+    awardPot(winners: Player[]): void;
+    endRound(): void;
+    getGameLogs(): string[];
+}
+//# sourceMappingURL=GameController.d.ts.map
