@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texas Holdem Poker - 16-bit Pixel Art</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>TEXAS HOLDEM POKER</h1>
+      <div class="game-info">
+        <span id="gameState" class="game-state">LOBBY</span>
+        <span id="potDisplay" class="pot-display">Pot: $0</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="game-area">
+        <!-- Canvas for pixel art rendering -->
+        <canvas id="gameCanvas" width="1000" height="600"></canvas>
+
+        <!-- Game controls -->
+        <div class="controls">
+          <button id="startBtn" class="btn btn-primary">Start Game</button>
+          <button id="dealFlopBtn" class="btn btn-secondary" disabled>Deal Flop</button>
+          <button id="dealTurnBtn" class="btn btn-secondary" disabled>Deal Turn</button>
+          <button id="dealRiverBtn" class="btn btn-secondary" disabled>Deal River</button>
+          <button id="showdownBtn" class="btn btn-secondary" disabled>Showdown</button>
+        </div>
+
+        <!-- Player action panel -->
+        <div id="actionPanel" class="action-panel hidden">
+          <h3>Your Actions</h3>
+          <div class="button-group">
+            <button id="revealCardsBtn" class="action-btn btn-reveal">Reveal My Cards</button>
+          </div>
+          <div class="button-group">
+            <button id="foldBtn" class="action-btn">Fold</button>
+            <button id="checkBtn" class="action-btn">Check</button>
+            <button id="callBtn" class="action-btn">Call</button>
+            <button id="raiseBtn" class="action-btn">Raise</button>
+            <button id="allInBtn" class="action-btn">All-In</button>
+          </div>
+          <div id="raiseInput" class="raise-input hidden">
+            <input type="number" id="raiseAmount" placeholder="Raise amount" min="0">
+            <button id="confirmRaise" class="action-btn">Confirm</button>
+          </div>
+        </div>
+
+        <!-- Game log -->
+        <div id="gameLog" class="game-log">
+          <h3>Game Log</h3>
+          <div id="logContent" class="log-content"></div>
+        </div>
+      </div>
+
+      <!-- Player info panel -->
+      <aside class="player-panel">
+        <h3>Players</h3>
+        <div id="playersList" class="players-list"></div>
+      </aside>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Advanced Computing Project - Texas Holdem Poker Game</p>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
